@@ -55,10 +55,8 @@ cd voting-system
 Run the Python file using:
 
 ```bash
-python your_file_name.py
+python voting-system.py
 ```
-
-Replace `your_file_name.py` with the actual name of your Python file.
 
 ## 💡 Concepts Used
 
