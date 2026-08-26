@@ -232,9 +232,19 @@ def admin_dashboard():
 
             if data["election"]["active"]:
                 st.warning("Election is already active.")
+
             else:
+                # Reset voters for the new election
+                for voter_id in data["voters"]:
+                    data["voters"][voter_id]["voted"] = False
+
+                # Reset vote counts for the new election
+                for position in data["votes"]:
+                    for candidate_id in data["votes"][position]:
+                        data["votes"][position][candidate_id] = 0
+
                 data["election"]["active"] = True
-                st.success("Election has started.")
+                st.success("New election has started. All voters and vote counts have been reset.")
                 st.rerun()
 
     with col2:
